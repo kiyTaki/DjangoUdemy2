@@ -1,20 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-    <h1>Seja Bem vindo</h1>
+{% extends 'base.html' %}
 
-    {% if user.is_authenticated %}
-        <p>Olá {{ user.username }} </p>
-        <a href="{% url 'logout' %}">Sair</a>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %}
+{% block title %} Seja bem vindo {% endblock %}
 
-</body>
-</html>
+{% block main %}
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+        <h1>Seja Bem vindo</h1>
+      </div>
+      <div class="col">
+        {% if user.is_authenticated %}
+            <p>Olá {{ user.username }} </p>
+            <a href="{% url 'logout' %}" class="btn btn-primary">Sair</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
+        {% endif %}
+      </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+
